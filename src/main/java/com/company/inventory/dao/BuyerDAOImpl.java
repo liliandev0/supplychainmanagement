@@ -186,12 +186,16 @@ public class BuyerDAOImpl implements BuyerDAO{
         String buyerSurname = resultSet.getString("buyerSurname");
         String buyerPhoneNumber = resultSet.getString("buyerPhoneNumber");
 
-        return new Buyer(buyerId, buyerName, buyerSurname, buyerPhoneNumber);
+        if(buyerName == null || buyerSurname == null || buyerPhoneNumber == null){
+            throw new IllegalArgumentException("Invalid data retrieved from the database");
+        }else{
+            return new Buyer(buyerId, buyerName, buyerSurname, buyerPhoneNumber);
+        }
     }
 
     /**
      *
-     * @param buyer takes the buyer Object to check
+     * @param buyer takes the buyer Object to check the validity
      * @return boolean
      * @throws IllegalArgumentException if the argument is not valid
      *

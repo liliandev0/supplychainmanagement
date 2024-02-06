@@ -1,5 +1,6 @@
 package com.company.inventory.model;
 
+import com.company.inventory.dao.SellerDAOImpl;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.junit.Test;
 
@@ -20,6 +21,14 @@ public class Seller implements Serializable {
     private String sellerName;
     private String contactEmail;
     private String contactPhoneNumber;
+
+    public Seller(int sellerId, String sellerName, String contactEmail, String contactPhoneNumber){
+        setSellerId(sellerId);
+        setSellerName(sellerName);
+        setContactEmail(contactEmail);
+        setContactPhone(contactPhoneNumber);
+    }
+
 
     public long getSellerId() {
         return sellerId;

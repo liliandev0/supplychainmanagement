@@ -169,7 +169,8 @@ public class GoodsDAOImpl implements GoodsDAO{
      *
      * @param resultSet takes the ResultSet from findAll
      * @return the Goods mapped
-     * @throws SQLException
+     * @throws SQLException //
+     * @throws DAOException //
      * Serves to map the Goods as an Object
      *
      */
@@ -179,9 +180,20 @@ public class GoodsDAOImpl implements GoodsDAO{
         String productName = resultSet.getString("productName");
         int quantity = resultSet.getInt("quantity");
 
-        return new Goods(productId, productName, quantity);
+        if(productName == null || quantity < 0){
+            throw new IllegalArgumentException("Invalid data retrieved from the database");
+        }else {
+            return new Goods(productId, productName, quantity);
+        }
     }
 
+    /**
+     *
+     * @param goods takes the goods Object to check the validity
+     * @return boolean
+     * @throws IllegalArgumentException if the argument is not valid
+     *
+     */
     private boolean checkGoodsValidity(Goods goods) throws IllegalArgumentException{
         if(goods == null || goods.getProductName().isEmpty()){
             throw new IllegalArgumentException("Goods object or product name cannot be null");

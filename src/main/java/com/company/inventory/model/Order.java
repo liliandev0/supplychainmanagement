@@ -14,18 +14,18 @@ import java.util.Objects;
 public final class Order implements Serializable {
 
     private final long orderId;
-    private final Buyer orderBuyer;
-    private final Seller orderSeller;
-    private final List<Goods> goodsSold;
-    private final int quantitySold;
-    private final LocalDate saleDate;
+    private final int orderBuyerId;
+    private final int orderSellerId;
+    private final int goodsSoldId;
+    private final int quantitySoldId;
+    private final java.sql.Date saleDate;
 
-    public Order(long orderId, Buyer orderBuyer, Seller orderSeller, List<Goods> goodsSold, int quantitySold, LocalDate saleDate){
+    public Order(long orderId, int orderBuyerId, int orderSellerId, int goodsSoldId, int quantitySoldId, java.sql.Date saleDate){
         this.orderId = orderId;
-        this.orderBuyer = orderBuyer;
-        this.orderSeller = orderSeller;
-        this.goodsSold = Collections.unmodifiableList(goodsSold); // Ensures immutability of the list
-        this.quantitySold = quantitySold;
+        this.orderBuyerId = orderBuyerId;
+        this.orderSellerId = orderSellerId;
+        this.goodsSoldId = goodsSoldId;
+        this.quantitySoldId = quantitySoldId;
         this.saleDate = saleDate;
     }
 
@@ -33,24 +33,24 @@ public final class Order implements Serializable {
         return orderId;
     }
 
-    public Buyer getOrderBuyer() {
-        return orderBuyer;
+    public int getOrderBuyerId() {
+        return orderBuyerId;
     }
 
-    public Seller getOrderSeller() {
-        return orderSeller;
+    public int getOrderSellerId() {
+        return orderSellerId;
     }
 
-    public List<Goods> getGoodsSold() {
-        return goodsSold;
+    public int getGoodsSoldId() {
+        return goodsSoldId;
     }
 
-    public int getQuantitySold() {
-        return quantitySold;
+    public int getQuantitySoldId() {
+        return quantitySoldId;
     }
 
 
-    public LocalDate getSaleDate() {
+    public java.sql.Date getSaleDate() {
         return saleDate;
     }
 
@@ -59,12 +59,12 @@ public final class Order implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return getOrderId() == order.getOrderId() && getQuantitySold() == order.getQuantitySold() && Objects.equals(getOrderBuyer(), order.getOrderBuyer()) && Objects.equals(getOrderSeller(), order.getOrderSeller()) && Objects.equals(getGoodsSold(), order.getGoodsSold()) && Objects.equals(getSaleDate(), order.getSaleDate());
+        return getOrderId() == order.getOrderId() && getQuantitySoldId() == order.getQuantitySoldId() && Objects.equals(getOrderBuyerId(), order.getOrderBuyerId()) && Objects.equals(getOrderSellerId(), order.getOrderSellerId()) && Objects.equals(getGoodsSoldId(), order.getGoodsSoldId()) && Objects.equals(getSaleDate(), order.getSaleDate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getOrderId(), getOrderBuyer(), getOrderSeller(), getGoodsSold(), getQuantitySold(), getSaleDate());
+        return Objects.hash(getOrderId(), getOrderBuyerId(), getOrderSellerId(), getGoodsSoldId(), getQuantitySoldId(), getSaleDate());
     }
 
 }
