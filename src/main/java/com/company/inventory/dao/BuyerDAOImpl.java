@@ -16,10 +16,13 @@ import org.slf4j.LoggerFactory;
 
 
 /**
+ *
  *  This class serves as an implementation of the interface GoodsDAO
  *  to make requests to the Database finding, updating, deleting or saving
  *  goods.
+ *
  */
+
 
 public class BuyerDAOImpl implements BuyerDAO{
 

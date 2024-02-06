@@ -12,6 +12,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * This class serves to implement OrderDAO interface and to make
+ * requests to the database for retrieving data, deleting or modifying it.
+ *
+ */
 public class OrderDAOImpl implements OrderDAO {
 
     private final Connection connection;

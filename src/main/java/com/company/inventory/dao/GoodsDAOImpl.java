@@ -13,9 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *
  *  This class serves as an implementation of the interface GoodsDAO
  *  to make requests to the Database finding, updating, deleting or saving
  *  goods.
+ *
  */
 public class GoodsDAOImpl implements GoodsDAO{
 

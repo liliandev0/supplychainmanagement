@@ -1,7 +1,6 @@
 package com.company.inventory.dao;
 
 import com.company.inventory.exceptions.DAOException;
-import com.company.inventory.model.Order;
 import com.company.inventory.model.Seller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +12,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * This class serves to implement SellerDAO interface
+ * and to make requests to the Database for retrieving data,
+ * deleting it or modifying it.
+ *
+ */
 public class SellerDAOImpl implements SellerDAO {
 
     private final Connection connection;
